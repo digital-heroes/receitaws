@@ -61,7 +61,6 @@ module Receitaws
       @complemento = result["complemento"]
       @atividades = []
       @qsa = []
-      @porte = result["porte"]
       @natureza_juridica = result["natureza_juridica"]
       @tipo = result["tipo"]
       @capital_social = result["capital_social"]
@@ -74,7 +73,7 @@ module Receitaws
       @cnaes = @atividades.collect{|a| a[:code].to_s.gsub(/[^0-9A-Za-z]/, '')}
       result["qsa"].each do |socio|
         @qsa << {
-          participacao: socio["qual"],
+          qualificacao: socio["qual"],
           nome: socio["nome"],
           pais_origem: socio["pais_origem"],
           nome_rep_legal: socio["nome_rep_legal"],

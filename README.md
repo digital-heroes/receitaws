@@ -82,7 +82,7 @@ cnpj.message
 cnpj.status == :ok
 
 #
-# LIsta de atributos disponíveis
+# Lista de atributos disponíveis
 
 # CNPJ no formato 00.000.000/0000-00.
 cnpj.cnpj
@@ -120,7 +120,7 @@ cnpj.uf
 # Email.
 cnpj.email
 
-  # Telefone.
+# Telefone.
 cnpj.telefone
 
 # Situação.
@@ -142,6 +142,42 @@ cnpj.atividades[0][:code]
 # Lista (Array) completa de todos os CNAE do CNPJ
 # Somente os números dos CNAES sem pontos e traços
 cnpj.cnaes
+
+# Lista (Array) completa de todos os sócios e administradores.
+cnpj.qsa
+
+# Qualificação do sócio
+cnpj.qsa[0][:qualificacao]
+
+# Nome do sócio
+cnpj.qsa[0][:nome]
+
+# País de origem do sócio. Disponível apenas para sócios estrangeiros.
+cnpj.qsa[0][:pais_origem]
+
+# Nome do representante legal. Disponível apenas para sócios com representantes.
+cnpj.qsa[0][:nome_rep_legal]
+
+# Qualificação do representante legal. Disponível apenas para sócios com representantes.
+cnpj.qsa[0][:qual_rep_legal]
+
+# Natureza jurídica.
+natureza_juridica
+
+# Valores possíveis: MATRIZ, FILIAL.
+tipo
+
+# Valor do capital social no formato 0.00.
+capital_social
+
+# (Objeto) Indica para a requisição como foi registrado a cobrança da consulta.
+billing 
+
+# Indica se a requisição foi gratuita.
+billing[:free] 
+
+# Indica como a requisição foi resolvida: true (resolvida pelo banco de dados), false (resolvida em tempo real).
+billing[:database] 
 
 ```
 
@@ -165,12 +201,14 @@ cnpj.cnaes
 
 - [Leandro Falcão](https://github.com/lsfalcao)
 - [QW3 Software & Marketing](https://qw3.com.br)
+- [Digital Heroes](https://dgtalhero.es)
 
 ![QW3 Logo](http://qw3.com.br/qw3_logo.png)
+![Digital Heroes Logo](https://s3.amazonaws.com/cloud-cube/dgtalheroes/wp-content/uploads/2020/04/19014113/logo%402x.png)
 
 The MIT License (MIT)
 
-Copyright (c) 2019 QW3
+Copyright (c) 2020 QW3 & Digital Heroes
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

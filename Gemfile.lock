@@ -1,0 +1,17 @@
+PATH
+  remote: .
+  specs:
+    receitaws (0.1.2)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  receitaws!
+
+BUNDLED WITH
+   2.1.4

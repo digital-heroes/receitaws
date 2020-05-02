@@ -2,7 +2,28 @@
 module Receitaws
   class Cnpj
 
-    attr_reader :status, :message, :nome, :uf, :telefone, :email, :fantasia, :cnpj, :bairro, :logradouro, :numero, :cep, :municipio, :abertura, :data_situacao, :complemento, :atividades, :cnaes
+    attr_reader :status,
+                :message,
+                :nome,
+                :uf,
+                :telefone,
+                :email,
+                :fantasia,
+                :cnpj,
+                :bairro,
+                :logradouro,
+                :numero,
+                :cep,
+                :municipio,
+                :abertura,
+                :data_situacao,
+                :complemento,
+                :atividades,
+                :cnaes,
+                :qsa,
+                :natureza_juridica,
+                :tipo,
+                :billing
 
     def initialize(result=nil)
 
@@ -19,6 +40,10 @@ module Receitaws
       end
 
       @status = :ok
+      @billing = {
+        free: result["billing"]["free"],
+        database: result["billing"]["database"]
+      }
       @nome = result["nome"]
       @uf = result["uf"]
       @telefone = result["telefone"]
@@ -35,6 +60,11 @@ module Receitaws
       @situacao = result["situacao"]
       @complemento = result["complemento"]
       @atividades = []
+      @qsa = []
+      @porte = result["porte"]
+      @natureza_juridica = result["natureza_juridica"]
+      @tipo = result["tipo"]
+      @capital_social = result["capital_social"]
       result["atividade_principal"].each do |atividade|
         @atividades << {code: atividade["code"], text: atividade["text"]}
       end
@@ -42,6 +72,15 @@ module Receitaws
         @atividades << {code: atividade["code"], text: atividade["text"]}
       end
       @cnaes = @atividades.collect{|a| a[:code].to_s.gsub(/[^0-9A-Za-z]/, '')}
+      result["qsa"].each do |socio|
+        @qsa << {
+          participacao: socio["qual"],
+          nome: socio["nome"],
+          pais_origem: socio["pais_origem"],
+          nome_rep_legal: socio["nome_rep_legal"],
+          qual_rep_legal: socio["qual_rep_legal"],
+        }
+      end
 
       return self
     end

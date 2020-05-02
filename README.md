@@ -167,6 +167,9 @@ natureza_juridica
 # Valores possíveis: MATRIZ, FILIAL.
 tipo
 
+# Porte da empresa
+porte 
+
 # Valor do capital social no formato 0.00.
 capital_social
 

@@ -23,7 +23,8 @@ module Receitaws
                 :qsa,
                 :natureza_juridica,
                 :tipo,
-                :billing
+                :billing,
+                :porte
 
     def initialize(result=nil)
 
@@ -63,6 +64,7 @@ module Receitaws
       @qsa = []
       @natureza_juridica = result["natureza_juridica"]
       @tipo = result["tipo"]
+      @porte = result["porte"]
       @capital_social = result["capital_social"]
       result["atividade_principal"].each do |atividade|
         @atividades << {code: atividade["code"], text: atividade["text"]}

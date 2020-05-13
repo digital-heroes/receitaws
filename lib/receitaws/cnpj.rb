@@ -24,7 +24,8 @@ module Receitaws
                 :natureza_juridica,
                 :tipo,
                 :billing,
-                :porte
+                :porte,
+                :capital_social
 
     def initialize(result=nil)
 
